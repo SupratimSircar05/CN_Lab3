@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.15)
+project(CN_Lab3 C)
+
+set(CMAKE_C_STANDARD 99)
+
+add_executable(CN_Lab3_1_c Q1client.c)
+add_executable(CN_Lab3_1_s Q1server.c)
+add_executable(CN_Lab3_2_c Q2client.c)
+add_executable(CN_Lab3_2_s Q2server.c)
+add_executable(CN_Lab3_3_c chatClient.c)
+add_executable(CN_Lab3_3_s chatServer.c)
+add_executable(CN_Lab3_4_c dataClient.c)
+add_executable(CN_Lab3_4_s addServer.c)
+add_executable(CN_Lab3_5_c clientUnsorted.c)
+add_executable(CN_Lab3_5_s serverSort.c)
