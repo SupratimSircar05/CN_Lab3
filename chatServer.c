@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-#include <sys/types.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
 
@@ -31,19 +30,18 @@ int main() {
     struct sockaddr_in client;
     int l = sizeof(client);
 
-    while(1) {
+    while (1) {
 
         recvfrom(fd, &buff, sizeof(buff), 0, (struct sockaddr *) &client, &l);
         printf("\nMessage from client :\n%s\n", buff);
-        if(strcmp(stopword, buff) == 0)
+        if (strcmp(stopword, buff) == 0)
             break;
 
         printf("\nEnter a message :\n");
         gets(buff);
-        if(strcmp(stopword, buff) != 0)
+        if (strcmp(stopword, buff) != 0)
             sendto(fd, &buff, sizeof(buff), 0, (struct sockaddr *) &client, sizeof(client));
-        else
-        {
+        else {
             sendto(fd, &buff, sizeof(buff), 0, (struct sockaddr *) &client, sizeof(client));
             break;
         }

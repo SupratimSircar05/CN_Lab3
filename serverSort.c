@@ -5,8 +5,7 @@
 
 void bubble_sort(int[], int);
 
-int main()
-{
+int main() {
     int socket_desc, client_sock, c, read_size;
     struct sockaddr_in server, client;
     int message[10];
@@ -21,7 +20,7 @@ int main()
     server.sin_addr.s_addr = INADDR_ANY;
     server.sin_port = htons(8880);
 
-    if (bind(socket_desc, (struct sockaddr*)&server, sizeof(server)) < 0) {
+    if (bind(socket_desc, (struct sockaddr *) &server, sizeof(server)) < 0) {
         perror("bind failed. Error");
         return 1;
     }
@@ -32,7 +31,7 @@ int main()
     puts("Waiting for incoming connections...");
     c = sizeof(struct sockaddr_in);
 
-    client_sock = accept(socket_desc, (struct sockaddr*)&client, (socklen_t*)&c);
+    client_sock = accept(socket_desc, (struct sockaddr *) &client, (socklen_t *) &c);
 
     if (client_sock < 0) {
         perror("accept failed");
@@ -50,16 +49,14 @@ int main()
 
     if (read_size == 0) {
         puts("Client disconnected");
-    }
-    else if (read_size == -1) {
+    } else if (read_size == -1) {
         perror("recv failed");
     }
 
     return 0;
 }
 
-void bubble_sort(int list[], int n)
-{
+void bubble_sort(int list[], int n) {
     int c, d, t;
 
     for (c = 0; c < (n - 1); c++) {

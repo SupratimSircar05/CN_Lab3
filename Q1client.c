@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <sys/types.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
 
@@ -9,7 +8,7 @@ int main() {
     int fd, res;
     fd = socket(AF_INET, SOCK_DGRAM, 0);
     printf("\nReturn value : %d", fd);
-    if(fd == -1)
+    if (fd == -1)
         printf("\nSocket not created\n");
     else
         printf("\nSocket created\n");
@@ -20,7 +19,7 @@ int main() {
     x.sin_addr.s_addr = inet_addr("127.0.0.1");
 
     res = bind(fd, (struct sockaddr *) &x, sizeof(x));
-    if(res == -1)
+    if (res == -1)
         printf("\nBind error\n");
     else
         printf("\nBind successfully\n");

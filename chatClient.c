@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-#include <sys/types.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
 
@@ -36,21 +35,20 @@ int main() {
     y.sin_port = ntohs(7000);
     y.sin_addr.s_addr = inet_addr("127.0.0.1");
 
-    while(1) {
+    while (1) {
 
         printf("\nEnter a message :\n");
         gets(buff);
-        if(strcmp(stopword, buff) != 0)
+        if (strcmp(stopword, buff) != 0)
             sendto(fd, &buff, sizeof(buff), 0, (struct sockaddr *) &y, sizeof(y));
-        else
-        {
+        else {
             sendto(fd, &buff, sizeof(buff), 0, (struct sockaddr *) &y, sizeof(y));
             break;
         }
 
         recvfrom(fd, &buff, sizeof(buff), 0, (struct sockaddr *) &server, &l);
         printf("\nMessage from server :\n%s\n", buff);
-        if(strcmp(stopword, buff) == 0)
+        if (strcmp(stopword, buff) == 0)
             break;
     }
     printf("\nCommunication terminated !\n");

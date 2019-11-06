@@ -3,12 +3,11 @@
 #include <sys/socket.h>
 #include <unistd.h>
 
-int main()
-{
+int main() {
     int sock;
     struct sockaddr_in server;
     int server_reply[10];
-    int number[10] = { 5, 4, 3, 8, 9, 1, 2, 0, 7, 6 }, i;
+    int number[10] = {5, 4, 3, 8, 9, 1, 2, 0, 7, 6}, i;
 
     sock = socket(AF_INET, SOCK_STREAM, 0);
     if (sock == -1) {
@@ -20,7 +19,7 @@ int main()
     server.sin_family = AF_INET;
     server.sin_port = htons(8880);
 
-    if (connect(sock, (struct sockaddr*)&server, sizeof(server)) < 0) {
+    if (connect(sock, (struct sockaddr *) &server, sizeof(server)) < 0) {
         perror("connect failed. Error");
         return 1;
     }
