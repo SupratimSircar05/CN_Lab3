@@ -1,3 +1,4 @@
+// server adds the two numbers received and returns the result
 #include <stdio.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>

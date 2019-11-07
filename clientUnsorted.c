@@ -1,3 +1,4 @@
+// client sends unsorted array
 #include <arpa/inet.h>
 #include <stdio.h>
 #include <sys/socket.h>

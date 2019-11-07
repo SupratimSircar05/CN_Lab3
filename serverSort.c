@@ -1,3 +1,4 @@
+// server sorts the array and returns the sorted array to client
 #include <arpa/inet.h>
 #include <stdio.h>
 #include <sys/socket.h>
